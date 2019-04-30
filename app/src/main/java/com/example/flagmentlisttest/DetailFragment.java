@@ -17,15 +17,17 @@ public class DetailFragment extends Fragment {
     public final static String NAME = "key_name1";
     public final static String PRICE = "key_name2";
     public final static String PLACE = "key_name3";
+    public final static String IMAGE = "key_nme4";
     private DetailFragmentBinding binding;
 
     @CheckResult
-    public static DetailFragment createInstance(String name, String price, String place) {
+    public static DetailFragment createInstance(String name, String price, String place, int image) {
         DetailFragment fragment = new DetailFragment();
         Bundle args = new Bundle();
         args.putString(NAME,name);
         args.putString(PRICE,price);
         args.putString(PLACE,place);
+        args.putInt(IMAGE,image);
         fragment.setArguments(args);
         return fragment;
 
@@ -34,6 +36,7 @@ public class DetailFragment extends Fragment {
     private String mName;
     private String mPrice;
     private String mPlace;
+    private Integer mImage;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class DetailFragment extends Fragment {
             mName = args.getString(NAME);
             mPrice = args.getString(PRICE);
             mPlace = args.getString(PLACE);
+            mImage = args.getInt(IMAGE);
         }
     }
 
@@ -62,5 +66,6 @@ public class DetailFragment extends Fragment {
         binding.textView.setText("農産物: " + mName);
         binding.textView2.setText("価格: " + mPrice + "円");
         binding.textView3.setText("生産地: " + mPlace);
+        binding.imageView.setImageResource(mImage);
     }
 }
