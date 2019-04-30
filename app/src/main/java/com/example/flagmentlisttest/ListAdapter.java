@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class ListAdapter extends BaseAdapter {
                 convertView = layoutInflater.inflate(R.layout.list_item, parent, false);
             }
 
+            ((ImageView) convertView.findViewById(R.id.item_imageView)).setImageResource(foodList.get(position).getImage());
             ((TextView) convertView.findViewById(R.id.item_textView1)).setText(foodList.get(position).getName());
             ((TextView)convertView.findViewById(R.id.item_textView2)).setText(String.valueOf(foodList.get(position).getPrice())+"円");
 
