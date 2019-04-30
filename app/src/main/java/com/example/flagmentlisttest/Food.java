@@ -7,6 +7,14 @@ public class Food {
     private String producingArea;
     private int image;
 
+    public Food(String name, Integer price, String producingArea, int image) {
+        this.name = name;
+        this.price = price;
+        this.producingArea = producingArea;
+        this.image = image;
+
+    }
+
 
 public long getId(){
     return id;

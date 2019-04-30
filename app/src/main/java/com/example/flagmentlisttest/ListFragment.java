@@ -42,30 +42,16 @@ public class ListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         final ArrayList<Food> list = new ArrayList<>();
         ListAdapter adapter = new ListAdapter(this.getContext());
 
-        Food food1 = new Food();
-
-        food1.setImage(R.drawable.ringo);
-        food1.setName("りんご");
-        food1.setPrice(100);
-        food1.setProducingArea("青森");
+        Food food1 = new Food("りんご",100,"青森", R.drawable.ringo);
         list.add(food1);
 
-        Food food2 = new Food();
-        food2.setImage(R.drawable.mikan);
-        food2.setName("みかん");
-        food2.setPrice(500);
-        food2.setProducingArea("静岡");
+        Food food2 = new Food("みかん", 500, "静岡", R.drawable.mikan);
         list.add(food2);
 
-        Food food3 = new Food();
-        food3.setImage(R.drawable.grape);
-        food3.setName("ぶどう");
-        food3.setPrice(1000);
-        food3.setProducingArea("山梨");
+        Food food3 = new Food("ぶどう", 1000, "山梨", R.drawable.grape);
         list.add(food3);
 
         adapter.notifyDataSetChanged();
