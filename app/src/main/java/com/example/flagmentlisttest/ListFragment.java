@@ -47,16 +47,26 @@ public class ListFragment extends Fragment {
         ListAdapter adapter = new ListAdapter(this.getContext());
 
         Food food1 = new Food();
+
+        food1.setImage(R.drawable.ringo);
         food1.setName("りんご");
         food1.setPrice(100);
         food1.setProducingArea("青森");
         list.add(food1);
 
         Food food2 = new Food();
+        food2.setImage(R.drawable.mikan);
         food2.setName("みかん");
         food2.setPrice(500);
         food2.setProducingArea("静岡");
         list.add(food2);
+
+        Food food3 = new Food();
+        food3.setImage(R.drawable.grape);
+        food3.setName("ぶどう");
+        food3.setPrice(1000);
+        food3.setProducingArea("山梨");
+        list.add(food3);
 
         adapter.notifyDataSetChanged();
         adapter.setFoodList(list);
@@ -67,7 +77,12 @@ public class ListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragment_body,DetailFragment.createInstance(list.get(position).getName(),String.valueOf(list.get(position).getPrice()),list.get(position).getProducingArea()));
+                transaction.replace(R.id.fragment_body, DetailFragment.createInstance(
+                        list.get(position).getName(),
+                        String.valueOf(list.get(position).getPrice()),
+                        list.get(position).getProducingArea(),
+                        list.get(position).getImage())
+                        );
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
