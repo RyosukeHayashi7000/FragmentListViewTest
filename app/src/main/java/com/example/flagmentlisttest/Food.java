@@ -5,6 +5,7 @@ public class Food {
     private String name;
     private int price;
     private String producingArea;
+    private int image;
 
 
 public long getId(){
@@ -37,6 +38,14 @@ public String getProducingArea() {
 
 public  void setProducingArea(String producingArea) {
     this.producingArea = producingArea;
+}
+
+public int getImage() {
+    return image;
+}
+
+public void setImage(int image){
+    this.image = image;
 }
 
 }
